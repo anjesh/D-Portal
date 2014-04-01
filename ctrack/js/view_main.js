@@ -54,4 +54,5 @@ view_main.view=function(args)
 	views.sectors_top.ajax();	
 
 	views.heatmap.ajax({limit:200});
+	views.donors_comparison.ajax();
 }

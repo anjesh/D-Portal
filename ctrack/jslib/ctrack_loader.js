@@ -23,6 +23,7 @@ ctrack_loader=function(args){
 		root+"art/activities.css",
 		root+"art/ctrack.css",
 		root+"jslib/jquery.js",
+		root+"jslib/highcharts.js",
 		root+"jslib/ctrack.js",
 	function(){
 		

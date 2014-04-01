@@ -33,3 +33,4 @@ views.districts=require("./view_districts.js");
 views.act=require("./view_act.js");
 
 views.donors_nepal=require("./view_donors_nepal.js");
+views.donors_comparison=require("./view_donors_comparison.js");
