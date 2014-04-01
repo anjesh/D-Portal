@@ -1,0 +1,52 @@
+#view_donors_nepal
+{view_head}
+<style>{css}</style>
+{beige}
+{main_head}
+{main_countrymin}
+{donors_head}
+{table_declare}
+{table_donors_nepal}
+{donors_data_description}
+{main_datainvestigators}
+{view_tail}
+
+#table_donors_nepal
+<div class="table_donors_wrap">
+	<table class="money">
+	{table_donors_nepal_row_head}
+	{table_donors_nepal_rows}
+	</table>
+</div>
+
+#table_donors_nepal_row_head
+<tr>
+	<td>AMP</td>
+	<td>CRS</td>
+	<td>{table_donor_title_donor_text}</td>
+	<td colspan="3" title="{table_donor_tip_title_transaction_text}">{table_donor_title_transaction_text}</td>
+	<td colspan="2" title="{table_donor_tip_title_budget_text}">{table_donor_title_budget_text}</td>
+</tr>
+<tr>
+	<td title="{table_donor_tip_title_crs_text}">2012</td>
+	<td title="{table_donor_tip_title_crs_text}">2012</td>
+	<td title="{table_donor_tip_title_donor_text}">2012</td>
+	<td title="{table_donor_tip_title_t2012_text}">2012</td>
+	<td title="{table_donor_tip_title_t2013_text}">2013</td>
+	<td title="{table_donor_tip_title_b2014_text}">2014</td>
+	<td title="{table_donor_tip_title_b2015_text}">2015</td>
+</tr>
+
+#table_donors_nepal_rows
+{table_donors_nepal_row}
+
+#table_donors_nepal_row
+<tr>
+	<td title="{table_donor_tip_crs_text}">{amp}</td>
+	<td title="{table_donor_tip_crs_text}">{crs}</td>
+	<td title="{table_donor_tip_donor_text}"><a href="#view=donor_activities&funder={funder}" class="block">{donor}</a></td>
+	<td title="{table_donor_tip_t2012_text}"><a href="#view=donor_transactions&year=2012&funder={funder}" class="block">{t2012}</a></td>
+	<td title="{table_donor_tip_t2013_text}"><a href="#view=donor_transactions&year=2013&funder={funder}" class="block">{t2013}</a></td>
+	<td title="{table_donor_tip_b2014_text}"><a href="#view=donor_budgets&year=2014&funder={funder}" class="block">{b2014}</a></td>
+	<td title="{table_donor_tip_b2015_text}"><a href="#view=donor_budgets&year=2015&funder={funder}" class="block">{b2015}</a></td>
+</tr>
