@@ -10,6 +10,8 @@ BANGLADESH
 {beige}
 {main_head}
 {main_country}
+{donor_graph}
+{sector_graph}
 {donors_comparison_graph}
 {main_money}
 {main_map}
@@ -42,6 +44,7 @@ BANGLADESH
 #main_money_rows
 {main_money_row}
 
+
 #main_money
 <div class="money_wrap">
 	<div class="money_mod_wrap donor">
@@ -66,50 +69,7 @@ BANGLADESH
 			<div class="peak sector"></div>
 		</div>
 <!--		<div class="money_subtitle">{subtitle_sector_text}</div>-->
-		<table class="money_mod">{main_sector_rows}
-<!--
-			<tr>
-				<td>Infrastructure</td>
-				<td title="1,000,000 USD">
-					<div class="barchart_wrap">
-						<div class="barchart sector" style="width:100px;"></div>
-					</div>
-				</td>
-			</tr>
-			<tr>
-				<td>Other social services</td>
-				<td title="700,000 USD">
-					<div class="barchart_wrap">
-						<div class="barchart sector" style="width:70px;"></div>
-					</div>
-				</td>
-			</tr>
-			<tr>
-				<td>Health</td>
-				<td title="300,000 USD">
-					<div class="barchart_wrap">
-						<div class="barchart sector" style="width:30px;"></div>
-					</div>
-				</td>
-			</tr>
-			<tr>
-				<td>Other</td>
-				<td title="200,000 USD">
-					<div class="barchart_wrap">
-						<div class="barchart sector" style="width:20px;"></div>
-					</div>
-				</td>
-			</tr>
-			<tr>
-				<td>Governance and security</td>
-				<td title="100,000 USD">
-					<div class="barchart_wrap">
-						<div class="barchart sector" style="width:10px;"></div>
-					</div>
-				</td>
-			</tr>
--->
-		</table>
+		<table class="money_mod">{main_sector_rows}</table>
 		<a href="#view=sectors" class="view_all_money">
 			{link_sector_text}
 		</a>
@@ -129,30 +89,38 @@ BANGLADESH
 #main_map
 <div class="map_wrap">
 	<div class="map_no_info">{map_no_info_text}</div>
-	<div class="map_info">
-		{map_info_text}
-	</div>
 	<div id="map"></div>
+	<div class="map_info">{map_info_text}</div>
+	<div class="map_percent">
+		<img src="{art}alert_icon.png" alt="{alert_icon_alt_text}" width="15" height="15"/>
+		<span>{percent_of_activities_with_location}%</span> {map_percent_text}
+	</div>
 </div>
 
 #main_stats
 <div class="stats_wrap">
+	<table class="title key">
+		<tr>
+			<td><img src="{art}publisher_icon.png" alt="{active_icon_alt_text}" width="40" height="40"/></td>
+			<td>{stats_title_text}</td>
+		</tr>
+	</table>
 	<table class="stats">
 		<tr>
 			<td rowspan="2" colspan="2" title="{stats_active_tip_text}">
-				<a href="#" class="stats_link">
+				<a href="#view=active" class="stats_link">
 					<span class="stats_title">{stats_active_text}</span>
 					<span class="stats_num">{active_projects}</span>
 				</a>
 			</td>
 			<td title="{stats_ended_tip_text}">
-				<a href="#" class="stats_link">
+				<a href="#view=ended" class="stats_link">
 					<span class="stats_title">{stats_ended_text}</span>
 					<span class="stats_num small">{ended_projects}</span>
 				</a>
 			</td>
 			<td title="{stats_total_tip_text}">
-				<a href="#" class="stats_link">
+				<a href="#view=total" class="stats_link">
 					<span class="stats_title">{stats_total_text}</span>
 					<span class="stats_num small">{total_projects}</span>
 				</a>
@@ -160,13 +128,13 @@ BANGLADESH
 		</tr>
 		<tr>
 			<td title="{stats_planned_tip_text}">
-				<a href="#" class="stats_link">
+				<a href="#view=planned" class="stats_link">
 					<span class="stats_title">{stats_planned_text}</span>
 					<span class="stats_num small">{planned_projects}</span>
 				</a>
 			</td>
 			<td title="{stats_publisher_tip_text}">
-				<a href="#" class="stats_link">
+				<a href="#view=publishers" class="stats_link">
 					<span class="stats_title">{stats_publisher_text}</span>
 					<span class="stats_num small">{numof_publishers}</span>
 				</a>
@@ -178,7 +146,7 @@ BANGLADESH
 
 #main_active
 <div class="active_wrap">
-	<table class="title space">
+	<table class="title">
 		<tr>
 			<td><img src="{art}active_icon.png" alt="{active_icon_alt_text}" width="40" height="40"/></td>
 			<td>{list_active_text}</td>
@@ -191,13 +159,13 @@ BANGLADESH
 		</table>
 	</div>
 	<div class="view_all_projects_wrap">
-		<a href="#ctrack_ending_more" class="view_all_projects">{list_more_active_text}</a>
+		<a href="#view=active" class="view_all_projects">{view_all_active_text}</a>
 	</div>
 </div>
 
 #main_ended
 <div class="ended_wrap">
-	<table class="title space">
+	<table class="title">
 		<tr>
 			<td><img src="{art}ended_icon.png" alt="{ended_icon_alt_text}" width="40" height="40"/></td>
 			<td>{list_ended_text}</td>
@@ -210,7 +178,7 @@ BANGLADESH
 		</table>
 	</div>
 	<div class="view_all_projects_wrap">
-		<a href="#ctrack_finished_more" class="view_all_projects">{list_more_ended_text}</a>
+		<a href="#view=ended" class="view_all_projects">{view_all_ended_text}</a>
 	</div>
 </div>
 
@@ -218,13 +186,91 @@ BANGLADESH
 #table_active_data
 <tr>
 	<td>{num}.</td>
-	<td><div><a href="#view=act&aid={aid}" title="{table_active_title_tip_text}">{title}</a></div></td>
+	<td>
+		<a href="#view=act&aid={aid}" title="{table_active_title_tip_text}">
+			{title}
+			<span>{view_donor_activites_reporting_text}</span>
+		</a>
+	</td>
 	<td title="{table_active_date_tip_text}">{date}</td>
 </tr>
 
 #table_ended_data
 <tr>
 	<td>{num}.</td>
-	<td><div><a href="#view=act&aid={activity}" title="{table_ended_title_tip_text}">{title}</a></div></td>
+	<td>
+		<a href="#view=act&aid={activity}" title="{table_ended_title_tip_text}">
+			{title}
+			<span>{view_donor_activites_reporting_text}</span>
+		</a>
+	</td>
 	<td title="{table_ended_date_tip_text}">{date}</td>
 </tr>
+
+#donor_graph
+<div class="default head">
+<a href="#view=donors" class="ask donor">{title_donor_text}</a>
+<div class="peak_wrap"><div class="peak donor"></div></div>
+<div id="donor_graph"></div>
+<a href="#view=donors" class="view_all_money">{link_donor_text}</a>
+
+<script>
+	var ctrack=require("ctrack");
+	var data=ctrack.get_chart_data("data_chart_donors");
+	var opts={
+		layout:"right",
+		width:960,
+		height:300,
+		center_x:250,
+		center_y:140,
+		radius:135,
+		hole:40,
+		caption_css:{"width":250,"padding":"7px 20px","borderStyle":"solid","borderWidth":1, "color":"#666", "background-color":"#fff",},
+		color:["#74BAFF","#42A0FB","#0081FF","#49739C","#5B6572"],
+		caption_edge:100,
+		stroke_width:2,
+		line_width:3,
+		tints:{
+			fill:[1,1,1,1],
+			line:[1,1,1,1],
+			stroke:[2,2,2,2],
+			border:[0.5,0.5,0.5,0.5],
+		},
+	}
+	ctrack.draw_chart("#donor_graph",data,opts);
+</script>
+</div>
+
+#sector_graph
+<div class="default graph">
+<a href="#view=sectors" class="ask sector">{title_sector_text}</a>
+<div class="peak_wrap"><div class="peak sector"></div></div>
+<div id="sector_graph"></div>
+<a href="#view=sectors" class="view_all_money">{link_sector_text}</a>
+
+<script>
+	var ctrack=require("ctrack");
+	var data=ctrack.get_chart_data("data_chart_sectors");
+	var opts={
+		layout:"left",
+		width:960,
+		height:300,
+		center_x:750,
+		center_y:140,
+		radius:135,
+		hole:40,
+		caption_css:{"width":250,"padding":"7px 20px","borderStyle":"solid","borderWidth":1, "color":"#666", "background-color":"#fff",},
+		color:["#79F5C3","#0EFF9E","#00C475","#318F69","#476B5C"],
+		caption_edge:100,
+		stroke_width:2,
+		line_width:3,
+		tints:{
+			fill:[1,1,1,1],
+			line:[1,1,1,1],
+			stroke:[2,2,2,2],
+			border:[0.5,0.5,0.5,0.5],
+		},
+	}
+	ctrack.draw_chart("#sector_graph",data,opts);
+</script>
+</div>

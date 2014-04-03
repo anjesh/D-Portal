@@ -46,7 +46,7 @@ view_donor_budgets.ajax=function(args)
 	var dat={
 			"from":"act,budget,country",
 			"limit":args.limit || -1,
-			"select":"sum_of_percent_of_budget_usd,aid,funder,title",
+			"select":"sum_of_percent_of_budget_usd,aid,funder,title,reporting_org",
 //			"funder_not_null":"",
 			"funder":funder,
 			"groupby":"aid",
@@ -69,6 +69,7 @@ view_donor_budgets.ajax=function(args)
 			d.funder=v.funder;
 			d.aid=v.aid;
 			d.title=v.title || v.aid;
+			d.reporting_org=v.reporting_org;
 			d.amount=commafy(""+Math.floor(v.sum_of_percent_of_budget_usd));
 			total+=v.sum_of_percent_of_budget_usd;
 
@@ -81,7 +82,7 @@ view_donor_budgets.ajax=function(args)
 			ctrack.chunk("alerts","{alert_no_iati}");
 		}
 
-		ctrack.chunk("donor",iati_codes.crs_funders[funder] || iati_codes.country[funder] || funder );
+		ctrack.chunk("donor",iati_codes.funder_names[funder] || iati_codes.country[funder] || funder );
 		ctrack.chunk("year",year);
 		ctrack.chunk("total",commafy(""+Math.floor(total)));
 

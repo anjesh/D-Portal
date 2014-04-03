@@ -1,3 +1,29 @@
+Development Portal (2014-04-03 shi)
+==============================
+New graphs replace old money modules
+Fixed css for graphs
+Graph titles are links
+
+Development Portal (2014-04-02 shi)
+==============================
+Changed Donor to Source & all instances on site
+Changed description for Source title and hover states in table
+Changed Publishers to Agents (not internal yet)
+Added "Back to {country_name}" to Stats pages
+Added new query example to about page
+
+
+Development Portal (2014-04-01 shi)
+==============================
+Added title to Key Figures
+Added more icons
+Adding charts to main view
+SAVi change line-height in tables for better legibility
+Added Map% alert
+Added Paths (buttons) on landing page
+Added IATI link to landing page
+
+
 Development Portal (2014-03-31 shi)
 ==============================
 Translations in dropdown menu
@@ -5,6 +31,9 @@ Countries are now in alphabetical order
 All cells are now clickable links
 All font-sizes are in ems for scaling issues in screen resolutions
 Refactored code into modular pages
+Declarations are now in footer
+Added "Reported by reporting-org" to project titles in tables
+Added Active / Ended / Planned / Total / Publishers pages
 
 
 Development Portal (2014-03-28 shi)

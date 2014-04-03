@@ -7,6 +7,7 @@ var plate=require("./plate.js")
 var iati=require("./iati.js")
 var fetch=require("./fetch.js")
 var savi=require("./savi.js")
+var chart=require("./chart.js")
 
 var views=require("./views.js");
 
@@ -14,8 +15,16 @@ var ganal=require("./ganal.js");
 
 var iati_codes=require("../../dstore/json/iati_codes.json")
 
-// export savi
+
+// exports
 ctrack.savi_fixup=savi.fixup;
+ctrack.draw_chart=chart.draw;
+
+ctrack.get_chart_data=function(name)
+{
+		return ctrack.chunk(name) || [];
+};
+
 
 ctrack.setup=function(args)
 {
