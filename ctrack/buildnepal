@@ -1,0 +1,19 @@
+if [ "$1" == "-b" ]
+then
+	echo "Building Nepal Country Tracker index page"
+	cp index.html index.org.html
+	cp index.nepal.html index.html
+	./build
+elif [ "$1" == "-d" ]
+then
+	echo "Going back to D-portal index page"
+	cp index.org.html index.html
+	rm index.org.html
+	./build
+else
+	echo "Usage:"
+	echo "./buildnepal -b"
+	echo "            to build Nepal Country tracker index page" 
+	echo "./buildnepal -d" 
+	echo "            to go back to D-portal index page" 
+fi
