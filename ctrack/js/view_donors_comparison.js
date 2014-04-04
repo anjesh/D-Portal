@@ -129,7 +129,6 @@ view_donors_comparsison.ajax = function(args)
 			v.sum_of_percent_of_usd=v.usd//Math.floor(100*v.usd/top)
 			v.funder=iati_codes.crs_funders[v.funder] || iati_codes.country[v.funder] || v.funder;
 			v.data_type = 'crs'
-			console.log(v);
 			fadd(v);
 		}
 	}
@@ -158,7 +157,6 @@ view_donors_comparsison.ajax = function(args)
 			v.sum_of_percent_of_usd=v.usd//Math.floor(100*v.usd/top)
 			v.funder=iati_codes.crs_funders[v.funder] || iati_codes.country[v.funder] || v.funder;
 			v.data_type = 'amp';
-			console.log(v);
 			fadd(v);
 		}
 	}
@@ -174,10 +172,10 @@ view_donors_comparsison.ajax = function(args)
 				"select":"funder,sum_of_percent_of_trans_usd",
 				"funder_not_null":"",
 				"groupby":"funder",
-				"orderby":"sum_of_percent_of_trans_usd",
 				"trans_code":"D|E",
 				"trans_day_gteq":year+"-01-01","trans_day_lt":(parseInt(year)+1)+"-01-01",
-				"country_code":(args.country || ctrack.args.country)
+				"country_code":(args.country || ctrack.args.country),
+				"orderby":"2-"
 			};
 
 		var callback=function(data){
@@ -186,7 +184,7 @@ view_donors_comparsison.ajax = function(args)
 			for(var i=0;i<data.rows.length;i++)
 			{
 				var v=data.rows[i];
-				d.funder = v.funder;
+				d.funder = iati_codes.crs_funders[v.funder] || iati_codes.country[v.funder] || v.funder;
 				d.sum_of_percent_of_usd = v.sum_of_percent_of_trans_usd;
 				d.data_type = "iati";
 				fadd(d);
